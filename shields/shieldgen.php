@@ -135,7 +135,7 @@ function generate($r, $force_reload = false)
                  $region = "CALIFORNIA";
             $routeNum = str_replace("US", "", $row['route']);
             $svg = str_replace("***NUMBER***", $routeNum, $svg);
-            $svg = str_replace("***SYS***", $region, $svg);
+            $svg = str_replace("***REGION***", $region, $svg);
             break;
 
         case 'usausb':
