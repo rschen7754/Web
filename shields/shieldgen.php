@@ -129,11 +129,13 @@ function generate($r, $force_reload = false)
             break;
             
         case 'usaush':
+            $region = explode(".", $r)[0];
+            $region = strtoupper($region);
+            if ($region == "CA")
+                 $region = "CALIFORNIA";
             $routeNum = str_replace("US", "", $row['route']);
-            if (strlen($routeNum) > 2) {
-                $svg = file_get_contents("{$dir}/template_usaush_wide.svg");
-            }
             $svg = str_replace("***NUMBER***", $routeNum, $svg);
+            $svg = str_replace("***SYS***", $region, $svg);
             break;
 
         case 'usausb':
